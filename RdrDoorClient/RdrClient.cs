@@ -18,7 +18,7 @@ namespace RdrDoorClient
             {
 
                 UdpCli = new UdpClient(33233);
-                IPAddress RemoteMac = IPAddress.Parse(SrvIpAddress);
+                IPAddress RemoteMac =IPAddress.Parse(SrvIpAddress);
                 UdpCli.Connect(RemoteMac, 33211);
             }
             catch (Exception ex)

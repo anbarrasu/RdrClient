@@ -38,6 +38,9 @@ namespace SerialLogger
             this.lblDoorno = new System.Windows.Forms.Label();
             this.tbxDoorno = new System.Windows.Forms.TextBox();
             this.chkbLockCtrl = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbSelPort
@@ -120,6 +123,7 @@ namespace SerialLogger
             this.tbxDoorno.Size = new System.Drawing.Size(96, 20);
             this.tbxDoorno.TabIndex = 8;
             this.tbxDoorno.TextChanged += new System.EventHandler(this.tbxDoorno_TextChanged);
+            //this.tbxDoorno.Leave += new System.EventHandler(this.tbxDoorno_Leave);
             // 
             // chkbLockCtrl
             // 
@@ -132,11 +136,32 @@ namespace SerialLogger
             this.chkbLockCtrl.UseVisualStyleBackColor = true;
             this.chkbLockCtrl.CheckedChanged += new System.EventHandler(this.chkbLockCtrl_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Location = new System.Drawing.Point(294, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(510, 49);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "LogSetting";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(76, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(89, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Include Error ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // SerialLogger_Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 443);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkbLockCtrl);
             this.Controls.Add(this.tbxDoorno);
             this.Controls.Add(this.lblDoorno);
@@ -149,8 +174,10 @@ namespace SerialLogger
             this.Controls.Add(this.cbSelPort);
             this.Name = "SerialLogger_Mainform";
             this.Text = "Serial Logger with Time";
-            this.Resize += new System.EventHandler(this.SerialLogger_Mainform_Resize);
             this.Load += new System.EventHandler(this.SerialLogger_Mainform_Load);
+            this.Resize += new System.EventHandler(this.SerialLogger_Mainform_Resize);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +195,8 @@ namespace SerialLogger
         private System.Windows.Forms.Label lblDoorno;
         private System.Windows.Forms.TextBox tbxDoorno;
         private System.Windows.Forms.CheckBox chkbLockCtrl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
