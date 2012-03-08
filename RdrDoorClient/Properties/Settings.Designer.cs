@@ -94,5 +94,17 @@ namespace RdrDoorClient.Properties {
                 this["IsSettingsAlreadyInitialised"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("9600")]
+        public uint CommBaudrate {
+            get {
+                return ((uint)(this["CommBaudrate"]));
+            }
+            set {
+                this["CommBaudrate"] = value;
+            }
+        }
     }
 }

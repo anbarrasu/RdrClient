@@ -20,5 +20,8 @@
     <Setting Name="IsSettingsAlreadyInitialised" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="CommBaudrate" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">9600</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

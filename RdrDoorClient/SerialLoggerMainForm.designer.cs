@@ -40,13 +40,15 @@ namespace SerialLogger
             this.chkbLockCtrl = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbBaudrate = new System.Windows.Forms.ComboBox();
+            this.lblBaudrate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbSelPort
             // 
             this.cbSelPort.FormattingEnabled = true;
-            this.cbSelPort.Location = new System.Drawing.Point(45, 12);
+            this.cbSelPort.Location = new System.Drawing.Point(114, 12);
             this.cbSelPort.Name = "cbSelPort";
             this.cbSelPort.Size = new System.Drawing.Size(121, 21);
             this.cbSelPort.TabIndex = 0;
@@ -62,7 +64,7 @@ namespace SerialLogger
             // 
             // btnConnectDisconnect
             // 
-            this.btnConnectDisconnect.Location = new System.Drawing.Point(189, 10);
+            this.btnConnectDisconnect.Location = new System.Drawing.Point(470, 10);
             this.btnConnectDisconnect.Name = "btnConnectDisconnect";
             this.btnConnectDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnectDisconnect.TabIndex = 2;
@@ -73,15 +75,15 @@ namespace SerialLogger
             // tbxConsole
             // 
             this.tbxConsole.Enabled = false;
-            this.tbxConsole.Location = new System.Drawing.Point(14, 94);
+            this.tbxConsole.Location = new System.Drawing.Point(14, 149);
             this.tbxConsole.Multiline = true;
             this.tbxConsole.Name = "tbxConsole";
-            this.tbxConsole.Size = new System.Drawing.Size(792, 337);
+            this.tbxConsole.Size = new System.Drawing.Size(792, 282);
             this.tbxConsole.TabIndex = 3;
             // 
             // btnPing
             // 
-            this.btnPing.Location = new System.Drawing.Point(540, 10);
+            this.btnPing.Location = new System.Drawing.Point(256, 82);
             this.btnPing.Name = "btnPing";
             this.btnPing.Size = new System.Drawing.Size(75, 23);
             this.btnPing.TabIndex = 4;
@@ -92,7 +94,7 @@ namespace SerialLogger
             // lblServerIPAddress
             // 
             this.lblServerIPAddress.AutoSize = true;
-            this.lblServerIPAddress.Location = new System.Drawing.Point(291, 20);
+            this.lblServerIPAddress.Location = new System.Drawing.Point(14, 90);
             this.lblServerIPAddress.Name = "lblServerIPAddress";
             this.lblServerIPAddress.Size = new System.Drawing.Size(95, 13);
             this.lblServerIPAddress.TabIndex = 6;
@@ -101,7 +103,7 @@ namespace SerialLogger
             // cBServerIP
             // 
             this.cBServerIP.FormattingEnabled = true;
-            this.cBServerIP.Location = new System.Drawing.Point(392, 12);
+            this.cBServerIP.Location = new System.Drawing.Point(114, 82);
             this.cBServerIP.Name = "cBServerIP";
             this.cBServerIP.Size = new System.Drawing.Size(121, 21);
             this.cBServerIP.TabIndex = 5;
@@ -110,7 +112,7 @@ namespace SerialLogger
             // lblDoorno
             // 
             this.lblDoorno.AutoSize = true;
-            this.lblDoorno.Location = new System.Drawing.Point(14, 56);
+            this.lblDoorno.Location = new System.Drawing.Point(14, 55);
             this.lblDoorno.Name = "lblDoorno";
             this.lblDoorno.Size = new System.Drawing.Size(50, 13);
             this.lblDoorno.TabIndex = 7;
@@ -118,17 +120,16 @@ namespace SerialLogger
             // 
             // tbxDoorno
             // 
-            this.tbxDoorno.Location = new System.Drawing.Point(70, 53);
+            this.tbxDoorno.Location = new System.Drawing.Point(114, 48);
             this.tbxDoorno.Name = "tbxDoorno";
             this.tbxDoorno.Size = new System.Drawing.Size(96, 20);
             this.tbxDoorno.TabIndex = 8;
             this.tbxDoorno.TextChanged += new System.EventHandler(this.tbxDoorno_TextChanged);
-            //this.tbxDoorno.Leave += new System.EventHandler(this.tbxDoorno_Leave);
             // 
             // chkbLockCtrl
             // 
             this.chkbLockCtrl.AutoSize = true;
-            this.chkbLockCtrl.Location = new System.Drawing.Point(189, 55);
+            this.chkbLockCtrl.Location = new System.Drawing.Point(17, 125);
             this.chkbLockCtrl.Name = "chkbLockCtrl";
             this.chkbLockCtrl.Size = new System.Drawing.Size(91, 17);
             this.chkbLockCtrl.TabIndex = 9;
@@ -139,9 +140,9 @@ namespace SerialLogger
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(294, 39);
+            this.groupBox1.Location = new System.Drawing.Point(593, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 49);
+            this.groupBox1.Size = new System.Drawing.Size(213, 133);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LogSetting";
@@ -149,18 +150,38 @@ namespace SerialLogger
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(76, 20);
+            this.checkBox1.Location = new System.Drawing.Point(6, 19);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(89, 17);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Include Error ";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // cbBaudrate
+            // 
+            this.cbBaudrate.FormattingEnabled = true;
+            this.cbBaudrate.Location = new System.Drawing.Point(318, 12);
+            this.cbBaudrate.Name = "cbBaudrate";
+            this.cbBaudrate.Size = new System.Drawing.Size(121, 21);
+            this.cbBaudrate.TabIndex = 11;
+            this.cbBaudrate.SelectedIndexChanged += new System.EventHandler(this.cbBaudrate_SelectedIndexChanged);
+            // 
+            // lblBaudrate
+            // 
+            this.lblBaudrate.AutoSize = true;
+            this.lblBaudrate.Location = new System.Drawing.Point(253, 20);
+            this.lblBaudrate.Name = "lblBaudrate";
+            this.lblBaudrate.Size = new System.Drawing.Size(50, 13);
+            this.lblBaudrate.TabIndex = 12;
+            this.lblBaudrate.Text = "Baudrate";
+            // 
             // SerialLogger_Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 443);
+            this.Controls.Add(this.lblBaudrate);
+            this.Controls.Add(this.cbBaudrate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkbLockCtrl);
             this.Controls.Add(this.tbxDoorno);
@@ -197,6 +218,8 @@ namespace SerialLogger
         private System.Windows.Forms.CheckBox chkbLockCtrl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cbBaudrate;
+        private System.Windows.Forms.Label lblBaudrate;
     }
 }
 

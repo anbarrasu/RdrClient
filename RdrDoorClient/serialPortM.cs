@@ -19,7 +19,7 @@ namespace SerialLogger
     {
         public SerialPort vSerialPort;
         private string[] portAvailable;
-        public int vBaudRate;
+        public UInt32 vBaudRate;
         public int vDataBits;
         public StopBits vStopBits;
         public Parity vParity;
@@ -38,7 +38,7 @@ namespace SerialLogger
             vBaudRate = 9600;
             vDataBits = 8;
             vStopBits = StopBits.One;
-            vParity = 0;
+            vParity = System.IO.Ports.Parity.None;
             vportSelected = null;
             vportSelected = "";
 
@@ -62,7 +62,7 @@ namespace SerialLogger
 
         }
 
-        public void setportvalues(int BaudRate, int DataBits, StopBits StopBits, Parity Parity)
+        public void setportvalues(UInt32 BaudRate, int DataBits, StopBits StopBits, Parity Parity)
         {
             vBaudRate = BaudRate;
             vDataBits = DataBits;
@@ -236,7 +236,7 @@ namespace SerialLogger
             {
                 vSerialPort.PortName = portName;
                 vSerialPort.ReadTimeout = 250; //Two hundred millisecond readline will wait
-                vSerialPort.BaudRate = vBaudRate;
+                vSerialPort.BaudRate = (int)vBaudRate;
                 vSerialPort.DataBits = vDataBits;
                 vSerialPort.StopBits = vStopBits;
                 vSerialPort.Parity = vParity;

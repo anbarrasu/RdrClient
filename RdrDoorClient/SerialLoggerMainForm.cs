@@ -46,6 +46,8 @@ namespace SerialLogger
                 }
                 else
                 {
+                    UInt32 baudrate = Convert.ToUInt32(cbBaudrate.Text);
+                    sp.setportvalues(baudrate, 8, System.IO.Ports.StopBits.One, System.IO.Ports.Parity.None);
                     if (sp.connect(cbSelPort.SelectedItem.ToString()))
                     {
                         RdrDoorClient.Properties.Settings.Default.IsCommConnected = true;
@@ -73,10 +75,16 @@ namespace SerialLogger
         cBServerIP.Items.Add("172.16.3.235");
         cBServerIP.Items.Add("135.254.167.145");
 
+        cbBaudrate.Items.Add("9600");
+        cbBaudrate.Items.Add("19200");
+        cbBaudrate.Items.Add("115200");
+
+
         if (RdrDoorClient.Properties.Settings.Default.IsSettingsAlreadyInitialised)
         {
             //MessageBox.Show("hihih");
             cbSelPort.SelectedItem = RdrDoorClient.Properties.Settings.Default.CommPort;
+            cbBaudrate.SelectedItem = RdrDoorClient.Properties.Settings.Default.CommBaudrate.ToString();
             cBServerIP.SelectedItem = RdrDoorClient.Properties.Settings.Default.ServerIPAddr;
 
             if (RdrDoorClient.Properties.Settings.Default.IsCommConnected)
@@ -100,6 +108,12 @@ namespace SerialLogger
             {
                 cBServerIP.SelectedIndex = 0;
                 RdrDoorClient.Properties.Settings.Default.ServerIPAddr = cBServerIP.SelectedItem.ToString();
+            }
+
+            if (cbBaudrate.Items.Count != 0)
+            {
+                cbBaudrate.SelectedIndex = 0;
+                RdrDoorClient.Properties.Settings.Default.CommBaudrate = Convert.ToUInt32(cbBaudrate.SelectedItem);
             }
 
             //RdrDoorClient.Properties.Settings.Default.DoorNo
@@ -130,6 +144,8 @@ namespace SerialLogger
             RdrDoorClient.Properties.Settings.Default.Save();
         }
 
+
+
         private void tbxDoorno_TextChanged(object sender, EventArgs e)
         {
             int doorno;
@@ -159,6 +175,7 @@ namespace SerialLogger
                 tbxDoorno.Enabled = false;
                 btnConnectDisconnect.Enabled = false;
                 btnPing.Enabled = false;
+                cbBaudrate.Enabled = false;
                 RdrDoorClient.Properties.Settings.Default.LockControls = true;
             }
             else
@@ -168,10 +185,25 @@ namespace SerialLogger
                 tbxDoorno.Enabled = true;
                 btnConnectDisconnect.Enabled = true;
                 btnPing.Enabled = true;
+                cbBaudrate.Enabled = true;
                 RdrDoorClient.Properties.Settings.Default.LockControls = false;
             }
             RdrDoorClient.Properties.Settings.Default.Save();
         }
+
+        private void cbBaudrate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBaudrate.Text.Length > 0)
+            {
+                UInt32 baudrate=Convert.ToUInt32(cbBaudrate.Text);
+                sp.setportvalues(baudrate, 8, System.IO.Ports.StopBits.One, System.IO.Ports.Parity.None);
+
+                RdrDoorClient.Properties.Settings.Default.CommBaudrate = baudrate;
+                RdrDoorClient.Properties.Settings.Default.Save();
+            }
+        }
+
+
 
         //private void tbxDoorno_Leave(object sender, EventArgs e)
         //{
